@@ -1,0 +1,13 @@
+.element__photo {
+  width: 100%;
+  min-width: 282px;
+  height: 282px;
+  object-fit: cover;
+  object-position: center;
+}
+
+@media (max-width: 618px) and (min-width: 420px) {
+  .element__photo {
+    height: 460px;
+  }
+}

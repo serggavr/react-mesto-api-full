@@ -1,0 +1,13 @@
+.header__auth-container {
+  height: 33px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: 24px;
+}
+
+@media (max-width: 768px) {
+  .header__auth-container {
+    display: none;
+  }
+}

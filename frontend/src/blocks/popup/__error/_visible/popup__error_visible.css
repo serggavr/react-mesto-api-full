@@ -1,0 +1,4 @@
+.popup__error_visible {
+  display: inline;
+  height: 0px;
+}

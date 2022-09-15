@@ -1,0 +1,10 @@
+.profile__avatar-wrapper {
+  position: relative;
+  border-radius: 50%;
+}
+
+.profile__avatar-wrapper:hover .profile__avatar-change-button {
+  visibility: visible;
+  opacity: 1;
+  transition: visibility 0.2s, opacity 0.3s ease-in;
+}

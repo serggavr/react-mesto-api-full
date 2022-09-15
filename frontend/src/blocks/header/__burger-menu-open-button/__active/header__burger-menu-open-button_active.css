@@ -1,0 +1,16 @@
+@media (max-width: 768px) {
+  .header__burger-menu-open-button_active
+    .header__burger-menu-open-button-line:nth-child(1) {
+    top: 9px;
+    transform: rotate(135deg);
+  }
+  .header__burger-menu-open-button_active
+    .header__burger-menu-open-button-line:nth-child(2) {
+    opacity: 0;
+  }
+  .header__burger-menu-open-button_active
+    .header__burger-menu-open-button-line:nth-child(3) {
+    top: 9px;
+    transform: rotate(-135deg);
+  }
+}
