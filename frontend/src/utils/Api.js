@@ -1,4 +1,4 @@
-import {groupId, token, baseUrl} from './constants'
+import {baseUrl} from './constants'
 
 class Api {
   constructor({
