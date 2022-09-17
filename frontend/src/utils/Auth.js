@@ -32,6 +32,7 @@ class Auth {
         })
       })
       .then(res => {
+        console.log(res)
         return this._checkResponse(res)
       })
   }
@@ -60,6 +61,7 @@ class Auth {
         method: 'GET',
       })
       .then(res => {
+        console.log(res)
         return this._checkResponse(res)
       })
   }

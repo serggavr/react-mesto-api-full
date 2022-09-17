@@ -35,6 +35,7 @@ app.use(cookieParser());
 
 app.use(requestLogger);
 
+app.options('*', cors());
 app.use(cors({
   origin: ['http://localhost:3001',
     'https://nomorefrontend.nomoredomains.sbs',
@@ -44,6 +45,8 @@ app.use(cors({
   ],
   credentials: true,
   exposedHeaders: '*',
+  methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
+  // allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept'],
 }));
 
 app.get('/crash-test', () => {
