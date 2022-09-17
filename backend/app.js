@@ -38,10 +38,10 @@ app.use(requestLogger);
 // app.options('*', cors());
 app.use(cors({
   origin: ['http://localhost:3001',
-    'https://nomorefrontend.nomoredomains.sbs',
-    'https://api.nomorefrontend.nomoredomains.sbs',
-    'http://nomorefrontend.nomoredomains.sbs',
-    'http://api.nomorefrontend.nomoredomains.sbs',
+    'https://nomorefrontend.nomoredomains.sbs/',
+    'https://api.nomorefrontend.nomoredomains.sbs/',
+    'http://nomorefrontend.nomoredomains.sbs/',
+    'http://api.nomorefrontend.nomoredomains.sbs/',
   ],
   credentials: true,
   exposedHeaders: '*',
