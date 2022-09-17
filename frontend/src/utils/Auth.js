@@ -23,6 +23,7 @@ class Auth {
     password
   }) {
     return fetch(`${authUrl}/signin`, {
+      credentials: 'include',
         method: 'POST',
         headers: this._headers,
         body: JSON.stringify({
@@ -40,6 +41,7 @@ class Auth {
     password
   }) {
     return fetch(`${authUrl}/signup`, {
+      credentials: 'include',
         method: 'POST',
         headers: this._headers,
         body: JSON.stringify({
@@ -54,10 +56,8 @@ class Auth {
 
   AuthWithToken() {
     return fetch(`${authUrl}/users/me`, {
+        credentials: 'include',
         method: 'GET',
-        headers: {
-          authorization: `Bearer ${localStorage.getItem('token')}`
-        }
       })
       .then(res => {
         return this._checkResponse(res)

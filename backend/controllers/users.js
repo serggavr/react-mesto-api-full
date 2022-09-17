@@ -99,7 +99,7 @@ module.exports.getCurrentUserInfo = (req, res, next) => {
       if (user) {
         return res.send(user);
       }
-      return next(new NotFoundError(`Пользователь по указанному c id: ${req.params.cardId} не найден`));
+      return next(new NotFoundError(`Пользователь ${req.user} не найден`));
     })
     .catch((err) => {
       if (err.name === 'CastError') {

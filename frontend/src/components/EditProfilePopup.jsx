@@ -49,6 +49,14 @@ React.useEffect(() => {
   !nameValid || !descriptionValid ? setFormValid(false) : setFormValid(true)
 }, [nameValid, descriptionValid])
 
+React.useEffect(() => {
+  setName(currentUser.name)
+  setDescription(currentUser.about)
+  resetNameError()
+  resetDescriptionError()
+// eslint-disable-next-line react-hooks/exhaustive-deps
+}, [isOpen])
+
   return (
     <PopupWithForm
         isOpen={isOpen}

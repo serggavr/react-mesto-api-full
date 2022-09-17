@@ -57,10 +57,8 @@ module.exports.deleteCard = (req, res, next) => {
 };
 
 module.exports.likeCard = (req, res, next) => {
-  const {
-    owner = req.user._id,
-  } = req.body;
-  Card.findByIdAndUpdate(req.params.cardId, { $addToSet: { likes: owner } }, { new: true })
+  const currentUser = req.user._id;
+  Card.findByIdAndUpdate(req.params.cardId, { $addToSet: { likes: currentUser } }, { new: true })
     .then((card) => {
       if (card) {
         return res.send(card);
@@ -76,10 +74,8 @@ module.exports.likeCard = (req, res, next) => {
 };
 
 module.exports.dislikeCard = (req, res, next) => {
-  const {
-    owner = req.user._id,
-  } = req.body;
-  Card.findByIdAndUpdate(req.params.cardId, { $pull: { likes: owner } }, { new: true })
+  const currentUser = req.user._id;
+  Card.findByIdAndUpdate(req.params.cardId, { $pull: { likes: currentUser } }, { new: true })
     .then((card) => {
       if (card) {
         return res.send(card);

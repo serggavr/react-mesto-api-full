@@ -36,6 +36,7 @@ export default function EditAvatarPopup({
   }, [userAvatarSrcValid, validateUserAvatarSrc, userAvatarSrc])
 
   React.useEffect(() => {
+    setUserAvatarSrc('')
     setFormValid(false)
   }, [isOpen])
 

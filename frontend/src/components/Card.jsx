@@ -1,17 +1,11 @@
 import React from 'react';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
-export default function Card({
-                card,
-                onCardClick,
-                onCardLike,
-                onCardDeleteWithConfirmation,
-              })
-{
+export default function Card({ card, onCardClick, onCardLike, onCardDeleteWithConfirmation }) {
 
   const currentUser = React.useContext(CurrentUserContext);
-  const isOwner = card.owner._id === currentUser._id;
-  const [isLiked, setIsLiked] = React.useState(card.likes.some(like => like._id === currentUser._id))
+  const isOwner = card.owner === currentUser._id;
+  const [isLiked, setIsLiked] = React.useState(card.likes.some(like => like === currentUser._id))
 
   function handleClick() {
     onCardClick(card);
@@ -26,7 +20,7 @@ export default function Card({
   }
 
   React.useEffect(() => {
-    setIsLiked(card.likes.some(like => like._id === currentUser._id))
+    setIsLiked(card.likes.some(like => like === currentUser._id))
   }, [card, currentUser._id])
 
   return (

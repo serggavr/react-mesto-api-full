@@ -3,6 +3,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+const cors = require('cors');
 
 const {
   celebrate,
@@ -33,6 +34,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 app.use(requestLogger);
+
+app.use(cors({
+  origin: 'http://localhost:3001',
+  credentials: true,
+  exposedHeaders: '*',
+}));
 
 app.get('/crash-test', () => {
   setTimeout(() => {
@@ -72,6 +79,6 @@ app.use(errorHandler);
 app.listen(PORT, () => {
   // eslint-disable-next-line no-console
   console.log(`App listening on port ${PORT}`);
-  console.log(process.env);
-  console.log(process.env.NODE_ENV);
+  // console.log(process.env);
+  // console.log(process.env.NODE_ENV);
 });

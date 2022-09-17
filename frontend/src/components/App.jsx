@@ -44,16 +44,18 @@ function getDataFromApi() {
 }
 
 function handleCardLike(card) {
-  const isLiked = card.likes.some(like => like._id === currentUser._id);
+  const isLiked = card.likes.some(like => like === currentUser._id);
   if (isLiked) {
     Api.dislikeCard(card._id)
     .then(res => {
+      console.log(res)
       setCards((state) => state.map((c) => c._id === card._id ? res: c))
     })
     .catch(err => console.log(err))
   } else {
     Api.likeCard(card._id)
     .then(res => {
+      console.log(res)
       setCards((state) => state.map((c) => c._id === card._id ? res: c))
     })
     .catch(err => console.log(err))
@@ -126,9 +128,9 @@ function handleDeleteConfirmation(card) {
   function handleUpdateUser(newUserData) {
     return new Promise((resolve) => {
       Api.setUser({newName: newUserData.name, newAbout: newUserData.about})
-    .then(res => {
-      setCurrentUser(res)
-      closeAllPopups()
+        .then(res => {
+          setCurrentUser(res)
+          closeAllPopups()
     })
     .catch(err => console.log(err))
     .finally(() => {
@@ -139,30 +141,30 @@ function handleDeleteConfirmation(card) {
 
   const handleUpdateAvatar = (userAvatarSrc) => {
     return new Promise((resolve) => {
-    Api.setUserAvatar(userAvatarSrc)
-    .then(res => {
-      setCurrentUser(res)
+      Api.setUserAvatar(userAvatarSrc)
+      .then(res => {
+        setCurrentUser(res)
     })
-    .then(res => closeAllPopups())
-    .catch(err => console.log(err))
-    .finally(() => {
-      resolve()
+      .then(res => closeAllPopups())
+      .catch(err => console.log(err))
+      .finally(() => {
+        resolve()
     })
   })
   }
 
   const handleAddPlaceSubmit = (newCard) => {
     return new Promise((resolve) => {
-    Api.setCard(newCard)
-    .then(res => {
-      setCards([res, ...cards])
+      Api.setCard(newCard)
+      .then(res => {
+        setCards([res, ...cards])
     })
-    .then(res => closeAllPopups())
-    .catch(err => console.log(err))
-    .finally(() => {
-      resolve()
+      .then(res => closeAllPopups())
+      .catch(err => console.log(err))
+      .finally(() => {
+        resolve()
+      })
     })
-  })
   }
   
   const useValidation = () => {
@@ -208,12 +210,11 @@ function handleDeleteConfirmation(card) {
       handleCloseWithPushEscButton,
     ])
 
-    
-
     const handleSignUp = ({email, password}) => {
       return new Promise((resolve) => {
         Auth.signUp({email, password})
         .then(res => {
+            console.log(res)
             setFormSubmittedSuccessfully(true)
             handleInfoTooltipOpen()
             navigate('/sign-in', { push: true })
@@ -229,12 +230,10 @@ function handleDeleteConfirmation(card) {
       })
     }
     
-
     const handleSignIn = ({email, password}) => {
       return new Promise((resolve) => {
         Auth.signIn({email, password})
         .then((data) => {
-              localStorage.setItem('token', data.token)
               setEmail(email)
               setLoggedIn(true)
             })
@@ -256,7 +255,7 @@ function handleDeleteConfirmation(card) {
 
     const handleAuthWithToken = () => {
       Auth.AuthWithToken()
-      .then(({data}) => {
+      .then((data) => {
         setEmail(data.email)
         setLoggedIn(true)
       })
@@ -270,14 +269,12 @@ function handleDeleteConfirmation(card) {
     }
 
     const handleLogout = () => {
-      localStorage.removeItem('token')
       setLoggedIn(false)
     }
 
     React.useEffect(() =>{
-      if(localStorage.getItem('token')) {
         handleAuthWithToken()
-      }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
   return (

@@ -45,6 +45,14 @@ export default function AddPlacePopup({
     !newPlaceNameValid || !newPlaceImageSrcValid || newPlaceName === '' || newPlaceImageSrc === '' ? setFormValid(false) : setFormValid(true)
   }, [newPlaceNameValid, newPlaceImageSrcValid, newPlaceName, newPlaceImageSrc])
 
+  React.useEffect(() => {
+    setNewPlaceName('')
+    setNewPlaceImageSrc('')
+    resetNewPlaceNameError()
+      resetNewPlaceImageSrcError()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isOpen])
+
   return (
     <PopupWithForm
     isOpen={isOpen}

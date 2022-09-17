@@ -18,6 +18,7 @@ class Api {
 
   getUser() {
     return fetch(`${this._baseUrl}/users/me`, {
+      credentials: 'include',
         method: 'GET',
         headers: this._headers
       })
@@ -28,6 +29,7 @@ class Api {
 
   getCards() {
     return fetch(`${this._baseUrl}/cards`, {
+      credentials: 'include',
       method: 'GET',
       headers: this._headers
     }).then(res => {
@@ -40,6 +42,7 @@ class Api {
     newAbout
   }) {
     return fetch(`${this._baseUrl}/users/me`, {
+      credentials: 'include',
       method: 'PATCH',
       headers: this._headers,
       body: JSON.stringify({
@@ -56,6 +59,7 @@ class Api {
     cardLink
   }) {
     return fetch(`${this._baseUrl}/cards`, {
+      credentials: 'include',
       method: 'POST',
       headers: this._headers,
       body: JSON.stringify({
@@ -69,6 +73,7 @@ class Api {
 
   deleteCard(cardId) {
     return fetch(`${this._baseUrl}/cards/${cardId}`, {
+      credentials: 'include',
       method: 'DELETE',
       headers: this._headers,
     }).then(res => {
@@ -77,10 +82,12 @@ class Api {
   }
 
   likeCard(
-    cardId
+    cardId,
   ) {
     return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
+      
       method: 'PUT',
+      credentials: 'include',
       headers: this._headers
     }).then(res => {
       return this._getResponseData(res)
@@ -91,7 +98,9 @@ class Api {
     cardId
   ) {
     return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
+      
       method: 'DELETE',
+      credentials: 'include',
       headers: this._headers
     }).then(res => {
       return this._getResponseData(res)
@@ -100,6 +109,7 @@ class Api {
 
   setUserAvatar(avatarSrc) {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
+      credentials: 'include',
       method: 'PATCH',
       headers: this._headers,
       body: JSON.stringify({
@@ -112,9 +122,10 @@ class Api {
 }
 
 const api = new Api({
-  baseUrl: `${baseUrl}${groupId}`,
+  // baseUrl: `${baseUrl}${groupId}`,
+  baseUrl: `${baseUrl}`,
   headers: {
-    authorization: token,
+    // authorization: token,
     'Content-Type': 'application/json'
   }
 })
