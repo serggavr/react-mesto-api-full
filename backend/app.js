@@ -35,7 +35,7 @@ app.use(cookieParser());
 
 app.use(requestLogger);
 
-app.options('*', cors());
+// app.options('*', cors());
 app.use(cors({
   origin: ['http://localhost:3001',
     'https://nomorefrontend.nomoredomains.sbs',
