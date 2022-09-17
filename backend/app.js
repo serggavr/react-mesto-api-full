@@ -50,7 +50,7 @@ app.use(cors({
   credentials: true,
   exposedHeaders: '*',
   methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
-  // allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept'],
+  allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept'],
 }));
 
 app.get('/crash-test', () => {
