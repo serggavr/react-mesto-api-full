@@ -2,9 +2,9 @@
 // export const groupId = "cohort-43"
 // export const token = "56cfd0a1-6a89-41cf-9f3b-6d0765499e7a"
 // export const baseUrl = `https://mesto.nomoreparties.co/v1/`
-export const baseUrl = `https://api.nomorefrontend.nomoredomains.sbs`;
+export const baseUrl = `http://api.nomorefrontend.nomoredomains.sbs`;
 // export const authUrl = `https://auth.nomoreparties.co`
-export const authUrl = `https://api.nomorefrontend.nomoredomains.sbs`;
+export const authUrl = `http://api.nomorefrontend.nomoredomains.sbs`;
 
 // export const validatorSelectors = {
 //   formSelector: '.popup__form',
