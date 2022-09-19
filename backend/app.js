@@ -25,17 +25,10 @@ const {
 
 const app = express();
 
-// app.options('*', cors());
 app.use(cors({
   origin: ['http://localhost:3001',
-    'https://nomorefrontend.nomoredomains.sbs/',
-    'https://api.nomorefrontend.nomoredomains.sbs/',
-    'http://nomorefrontend.nomoredomains.sbs/',
-    'http://api.nomorefrontend.nomoredomains.sbs/',
     'https://nomorefrontend.nomoredomains.sbs',
-    'https://api.nomorefrontend.nomoredomains.sbs',
     'http://nomorefrontend.nomoredomains.sbs',
-    'http://api.nomorefrontend.nomoredomains.sbs',
   ],
   credentials: true,
   exposedHeaders: '*',
@@ -91,6 +84,4 @@ app.use(errorHandler);
 app.listen(PORT, () => {
   // eslint-disable-next-line no-console
   console.log(`App listening on port ${PORT}`);
-  // console.log(process.env);
-  // console.log(process.env.NODE_ENV);
 });

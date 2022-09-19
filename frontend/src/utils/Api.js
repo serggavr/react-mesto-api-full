@@ -85,9 +85,8 @@ class Api {
     cardId,
   ) {
     return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
-      
-      method: 'PUT',
       credentials: 'include',
+      method: 'PUT',
       headers: this._headers
     }).then(res => {
       return this._getResponseData(res)
@@ -98,9 +97,8 @@ class Api {
     cardId
   ) {
     return fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
-      
+      credentials: 'include',      
       method: 'DELETE',
-      credentials: 'include',
       headers: this._headers
     }).then(res => {
       return this._getResponseData(res)
@@ -122,7 +120,6 @@ class Api {
 }
 
 const api = new Api({
-  // baseUrl: `${baseUrl}${groupId}`,
   baseUrl: `${baseUrl}`,
   headers: {
     // authorization: token,

@@ -48,14 +48,12 @@ function handleCardLike(card) {
   if (isLiked) {
     Api.dislikeCard(card._id)
     .then(res => {
-      console.log(res)
       setCards((state) => state.map((c) => c._id === card._id ? res: c))
     })
     .catch(err => console.log(err))
   } else {
     Api.likeCard(card._id)
     .then(res => {
-      console.log(res)
       setCards((state) => state.map((c) => c._id === card._id ? res: c))
     })
     .catch(err => console.log(err))
@@ -214,7 +212,6 @@ function handleDeleteConfirmation(card) {
       return new Promise((resolve) => {
         Auth.signUp({email, password})
         .then(res => {
-            console.log(res)
             setFormSubmittedSuccessfully(true)
             handleInfoTooltipOpen()
             navigate('/sign-in', { push: true })
