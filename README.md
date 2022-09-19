@@ -5,5 +5,5 @@ ip http://51.250.11.36
 url frontend http://nomorefrontend.nomoredomains.sbs/  
 url frontend https://nomorefrontend.nomoredomains.sbs/  
 
-url backend http://nomorefrontend.nomoredomains.sbs/  
-url backend https://nomorefrontend.nomoredomains.sbs/
+url backend http://api.nomorefrontend.nomoredomains.sbs/  
+url backend https://api.nomorefrontend.nomoredomains.sbs/
