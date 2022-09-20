@@ -13,7 +13,7 @@ const {
 } = require('celebrate');
 
 const { auth } = require('./middlewares/auth');
-const { login, createUser } = require('./controllers/users');
+const { login, createUser, logout } = require('./controllers/users');
 const { errorHandler } = require('./middlewares/errorHandler');
 const { NotFoundError } = require('./constants/errors');
 const { linkValidationPattern } = require('./constants/validationPattern');
@@ -71,6 +71,7 @@ app.post('/signin', celebrate({
 
 app.use(auth);
 
+app.get('/logout', logout);
 app.use('/users', require('./routes/users'));
 app.use('/cards', require('./routes/cards'));
 

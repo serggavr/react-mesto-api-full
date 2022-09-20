@@ -266,7 +266,11 @@ function handleDeleteConfirmation(card) {
     }
 
     const handleLogout = () => {
-      setLoggedIn(false)
+      Api.logout()
+      .then((res) => {
+        setLoggedIn(false)
+      })
+      .catch(err => console.log(err))
     }
 
     React.useEffect(() =>{

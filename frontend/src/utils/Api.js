@@ -117,6 +117,17 @@ class Api {
       return this._getResponseData(res)
     })
   }
+
+  logout() {
+    return fetch(`${this._baseUrl}/logout`, {
+        credentials: 'include',
+        method: 'GET',
+        headers: this._headers
+      })
+      .then(res => {
+        return this._getResponseData(res)
+      })
+  }
 }
 
 const api = new Api({

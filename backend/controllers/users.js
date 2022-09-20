@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
 
-const { NODE_ENV, JWT_SECRET, DEV_SECRET } = process.env;
+const { NODE_ENV, JWT_SECRET, DEV_SECRET = 'DEV_SECRET' } = process.env;
 
 const {
   ServerError,
@@ -67,6 +67,17 @@ module.exports.login = (req, res, next) => {
     .catch((err) => {
       next(err);
     });
+};
+
+// eslint-disable-next-line consistent-return
+module.exports.logout = (req, res, next) => {
+  const token = '';
+  try {
+    res.cookie(jwt, token);
+    req.status(200).send({ message: 'Logout' });
+  } catch (err) {
+    return next(new ServerError('Произошла ошибка'));
+  }
 };
 
 module.exports.getUsers = (req, res, next) => {
