@@ -72,8 +72,7 @@ module.exports.login = (req, res, next) => {
 // eslint-disable-next-line consistent-return
 module.exports.logout = (req, res, next) => {
   try {
-    res.clearCookie(jwt, { path: '/' });
-    req.status(200).send({ message: 'Logout' });
+    res.clearCookie('jwt').status(200).send({ message: 'Logout' });
   } catch (err) {
     return next(new ServerError('Произошла ошибка'));
   }
