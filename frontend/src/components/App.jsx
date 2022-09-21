@@ -263,10 +263,10 @@ function handleDeleteConfirmation(card) {
         navigate('/', { push: true })
       })
       .catch((err) => {
-        if (err.status === '401') {
-          console.log('401')
-        }
-        console.log(err.response)
+        // if (err.status === '401') {
+        //   console.log('401')
+        // }
+        console.log(err.toString())
         console.log(err)
         console.log(JSON.stringify(err))
       })
