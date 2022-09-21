@@ -262,7 +262,14 @@ function handleDeleteConfirmation(card) {
       .then(() => {
         navigate('/', { push: true })
       })
-      .catch(err => console.log(err))
+      .catch((err) => {
+        if (err.status === '401') {
+          console.log('401')
+        }
+        console.log(err.response)
+        console.log(err)
+        console.log(JSON.stringify(err))
+      })
     }
 
     const handleLogout = () => {
