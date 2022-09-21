@@ -16,3 +16,6 @@ node_modules
 
 # Env
 .env
+
+# test
+test_jwt.js
