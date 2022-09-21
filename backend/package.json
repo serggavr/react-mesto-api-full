@@ -5,9 +5,8 @@
   "main": "app.js",
   "scripts": {
     "lint": "eslint . --ext .js",
-    "start": "node app.js",
-    "dev": "set NODE_ENV=dev && nodemon app.js",
-    "build": "set NODE_ENV=production && nodemon app.js"
+    "start": "set NODE_ENV=production && node app.js",
+    "dev": "set NODE_ENV=dev && nodemon app.js"
   },
   "repository": {
     "type": "git",
